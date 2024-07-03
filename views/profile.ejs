@@ -1,0 +1,25 @@
+<%- include('./partials/header.ejs') %>
+    <div class="w-full px-20 py-10">
+        <h1 class="text-3xl mb-4">Hey, hemant👋🏻 </h1>
+        <h3 class="opacity-50 mb-10">showing all hisaabs, till now.</h3>
+        <div>
+            <form class="flex mb-10 gap-5" action="/profile" method="get">
+                <div class="px-4 py-2 flex items-center gap-4 font-medium text-sm text-zinc-500 bg-zinc-200 rounded-md">
+                    Filters <i class="ri-sound-module-fill "></i></div>
+                <div id="bydate"
+                    class="px-4 py-2 flex items-center gap-4 font-medium text-sm text-zinc-500 bg-zinc-200 rounded-md">
+                    By Date <i class="ri-calendar-line"></i></div>
+                <div class="hidden dates flex gap-5 items-center">
+                    <input class="bg-zinc-200 text-sm px-4 py-2 rounded-md" name="startDate" type="date">
+                    <input class="bg-zinc-200 text-sm px-4 py-2 rounded-md" name="endDate" type="date">
+                </div>
+                <select class="outline-none" name="byDate" id="">
+                    <option value="-1">Newest First</option>
+                    <option value="1">Oldest First</option>
+                </select>
+                <input class="px-6 py-2 bg-blue-500 text-white rounded-md" type="submit" value="Filter">
+            </form>
+        </div>
+        <div class="flex gap-10 flex-wrap">
+         
+    <%- include('./partials/footer.ejs') %>

@@ -1,0 +1,15 @@
+<%- include("../views/partials/header.ejs") %>
+<div class="logincontainer w-full h-[80%] flex items-center justify-center">
+    <div class="loginpanel">
+        <h3 class="text-2xl mb-3">Login</h3>
+        <form autocomplete="off" action="/login" class="flex flex-col gap-2 items-start" method="post">
+            <input class="block border-[1px] rounded-md border-zinc-100 px-3 py-2" type="text" placeholder="Email or Username" name="email">
+            <input class="block border-[1px] rounded-md border-zinc-100 px-3 py-2" type="password" placeholder="password" name="password">
+            <input class="block px-4 py-2 bg-blue-500 rounded-md text-white border-[1px]" type="submit" placeholder="submit" value="login">
+        </form>
+        <a class="mt-5 inline-block text-blue-500" href="/register">Don't have an account ?</a>
+    </div>
+</div>
+
+
+<%- include("../views/partials/footer.ejs") %>
