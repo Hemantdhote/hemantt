@@ -4,7 +4,7 @@ const bcrypt=require('bcrypt');
 const jwt=require('jsonwebtoken');
 
 module.exports.landingPageController =function(req,res){
-    res.render("index");
+    res.render("index",{loggedin:false});
 }
 
 module.exports.registerPageController =function(req,res){
@@ -50,7 +50,7 @@ module.exports.loginController =async function(req,res){
     let token=jwt.sign({id:user._id ,email:user.email},process.env.JWT_KEY)
 
     res.cookie("token",token);
-    res.send("acount loggedin successfully")
+    res.redirect('/profile')
 
    }
    else{
