@@ -3,6 +3,9 @@ const app=express();
 const path =require('path');
 const cookieParser=require("cookie-parser")
 
+const hisaabModel=require("./models/hisaab-model")
+const userModel=require("./models/user-model")
+
 require('dotenv').config();
 
 app.set("view engine","ejs");
@@ -13,10 +16,12 @@ app.use(cookieParser());
 
 
 const indexRouter=require('./routes/index-router');
+const hisaabRouter=require('./routes/hisaab-router');
 const db=require('./config/mongoose-connection')
 
 
 
 app.use('/',indexRouter);
+app.use('/hisaab',hisaabRouter);
 
 app.listen(process.env.PORT||3000);

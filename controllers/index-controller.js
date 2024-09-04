@@ -65,7 +65,24 @@ module.exports.logoutController =function(req,res){
     return res.redirect('/');
 }
 
-module.exports.profileController =function(req,res){
-  res.render('profile');
-}
+module.exports.profileController =async function(req,res){
+    console.log(req.body.user);
+
+
+    let byDate=Number(req.query.byDate);
+    let {startDate,endDate}=req.query;
+
+    byDate=byDate? byDate:-1;
+    startDate=startDate? startDate:new Date("1970-01-01");
+    endDate=endDate? endDate:new Date();
+
+
+
+ let user= await  userModel.findOne({email:req.user.email}).populate({
+    path:'hisaab',
+    match:{createdAt:{$gte:startDate,$lte:endDate}},
+    options:{sort:{createdAt:byDate}},
+ });
+  res.render('profile',{user});
+};
 

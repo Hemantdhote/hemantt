@@ -8,7 +8,7 @@ const hisaabModel=mongoose.Schema({
     maxLength:30,
 
    },
-   discription:{
+   description:{
     type:String,
     required:true,
     trim:true
@@ -34,4 +34,4 @@ const hisaabModel=mongoose.Schema({
    }
 },{timestamps:true})
 
-module.exports=mongoose.model("hissab",hisaabModel);
+module.exports=mongoose.model("hisaab",hisaabModel);
